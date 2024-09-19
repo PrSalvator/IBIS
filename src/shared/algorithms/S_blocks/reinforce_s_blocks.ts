@@ -40,7 +40,7 @@ export function ReinforceSBlockDecrypt(key_in: string, text: string, j_in: numbe
         t += t;
     }
 
-    const key = key_in.substring(j_in, n);
+    const key = t.substring(j_in, n);
     const k = ConvertTextToNumArray(key);
     const b = ConvertTextToNumArray(text);
     const q = k.reduce((acc, value) => acc + value) % n;
