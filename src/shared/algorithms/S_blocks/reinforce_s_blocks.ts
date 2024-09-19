@@ -16,7 +16,6 @@ export function ReinforceSBlockEncrypt(key_in: string, text: string, j_in: numbe
     const k = ConvertTextToNumArray(key);
     const b = ConvertTextToNumArray(text);
     const q = k.reduce((acc, value) => acc + value) % 4;
-    console.log(q, k, b)
     let i = 0;
     const iter = n - 1;
 
@@ -44,15 +43,14 @@ export function ReinforceSBlockDecrypt(key_in: string, text: string, j_in: numbe
     const key = key_in.substring(j_in, n);
     const k = ConvertTextToNumArray(key);
     const b = ConvertTextToNumArray(text);
-    const q = k.reduce((acc, value) => acc + value) % 4;
+    const q = k.reduce((acc, value) => acc + value) % n;
 
     let i = 0;
     const iter = n - 1;
 
     for (i = iter - 1; i > -1; i--) {
-        console.log(i);
-        const j = (q + i + 1) % 4;
-        const l = (q + i) % 4; //?
+        const j = (q + i + 1) % n;
+        const l = (q + i) % n; //?
         b[j] = (b[j] - b[l] + 32) % 32;
     }
 
