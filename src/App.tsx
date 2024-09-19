@@ -5,6 +5,8 @@ import { BackSBlock, StraightSBlock } from "./shared/algorithms/S_blocks/encrypt
 //import { ReinforceSBlockDecrypt, ReinforceSBlockEncrypt } from "./shared/algorithms/S_blocks/reinforce_s_blocks";
 import { PolyAlphabatCesareDecrypt, PolyAlphabatCesareEncrypt } from "./shared/algorithms/modified_cipher";
 import { ReinforceSBlockDecrypt, ReinforceSBlockEncrypt } from "./shared/algorithms/S_blocks/reinforce_s_blocks";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./app/routes";
 
 function App() {
 
@@ -15,12 +17,9 @@ function App() {
   console.log(EncryptText('сьешь_же_еще_этих_мягких_французских_булок_да_выпей_чаю','я'), DecryptText('РЫДЧЫЯЕДЯДШДЯЬСЗФЯЛЮВЙЗФЯУП_МХТЖРЙЗФЯАТКНЙЯГ_ЯБЩОДИЯЦ_Э','я'));
 
   return (
-    <>
-      {/* {getcode("Ч")}
-      {getsymb(0)}
-      {sumsymbs("А","б")}
-      {subctsymbs("г","Б")} */}
-    </>
+    <RouterProvider router={router}>
+      
+    </RouterProvider>
   )
 }
 
