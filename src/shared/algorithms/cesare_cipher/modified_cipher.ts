@@ -1,4 +1,11 @@
-import { SubtractSymbols, SumSymbols } from "./converters";
+//import { SubtractSymbols, SumSymbols } from "./converters";
+
+import { Converter } from "../../classes/converter";
+import { Validator } from "../../classes/validator";
+
+
+const validator = new Validator();
+const converter = new Converter(validator);
 
 export function PolyAlphabatCesareEncrypt(key: string, text: string, j_in: number): string {
     if (!Number.isInteger(j_in)) {
@@ -15,9 +22,9 @@ export function PolyAlphabatCesareEncrypt(key: string, text: string, j_in: numbe
         const t_i = text[i];
 
         const q = (i + j_in) % k;
-        t_k = SumSymbols(t_k, key[q]);
+        t_k = converter.SumSymbols(t_k, key[q]);
 
-        out += SumSymbols(t_k, t_i);
+        out += converter.SumSymbols(t_k, t_i);
     }
 
     return out;
@@ -38,9 +45,9 @@ export function PolyAlphabatCesareDecrypt(key: string, text: string, j_in: numbe
         const t_i = text[i];
 
         const q = (i + j_in) % k;
-        t_k = SumSymbols(t_k, key[q]);
+        t_k = converter.SumSymbols(t_k, key[q]);
 
-        out += SubtractSymbols(t_i, t_k);
+        out += converter.SubtractSymbols(t_i, t_k);
     }
 
     return out;

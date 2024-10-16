@@ -1,4 +1,9 @@
-import { ConvertNumArrayToText, ConvertTextToNumArray } from "../converters";
+import { Converter } from "../../../classes/converter";
+import { Validator } from "../../../classes/validator";
+//import { ConvertNumArrayToText, ConvertTextToNumArray } from "../converters";
+
+const validator = new Validator();
+const converter = new Converter(validator);
 
 export function ReinforceSBlockEncrypt(key_in: string, text: string, j_in: number): string {
     if (!Number.isInteger(j_in)) {
@@ -13,8 +18,8 @@ export function ReinforceSBlockEncrypt(key_in: string, text: string, j_in: numbe
     }
 
     const key = t.substring(j_in, n);
-    const k = ConvertTextToNumArray(key);
-    const b = ConvertTextToNumArray(text);
+    const k = converter.ConvertTextToNumArray(key);
+    const b = converter.ConvertTextToNumArray(text);
     const q = k.reduce((acc, value) => acc + value) % 4;
     let i = 0;
     const iter = n - 1;
@@ -25,7 +30,7 @@ export function ReinforceSBlockEncrypt(key_in: string, text: string, j_in: numbe
         b[j] = (b[l] + b[j]) % 32;
     }
 
-    return ConvertNumArrayToText(b);
+    return converter.ConvertNumArrayToText(b);
 }
 
 export function ReinforceSBlockDecrypt(key_in: string, text: string, j_in: number): string {
@@ -41,8 +46,8 @@ export function ReinforceSBlockDecrypt(key_in: string, text: string, j_in: numbe
     }
 
     const key = t.substring(j_in, n);
-    const k = ConvertTextToNumArray(key);
-    const b = ConvertTextToNumArray(text);
+    const k = converter.ConvertTextToNumArray(key);
+    const b = converter.ConvertTextToNumArray(text);
     const q = k.reduce((acc, value) => acc + value) % n;
 
     let i = 0;
@@ -54,5 +59,5 @@ export function ReinforceSBlockDecrypt(key_in: string, text: string, j_in: numbe
         b[j] = (b[j] - b[l] + 32) % 32;
     }
 
-    return ConvertNumArrayToText(b);
+    return converter.ConvertNumArrayToText(b);
 }

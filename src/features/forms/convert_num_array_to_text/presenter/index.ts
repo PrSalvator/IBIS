@@ -3,7 +3,7 @@ import { useState } from "react";
 import { convertTextToNumArraySchema } from "../schema";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { ConvertNumArrayToText } from "../../../../shared/algorithms/converters";
+import { ConvertNumArrayToText } from "../../../../shared/algorithms/cesare_cipher/converters";
 
 export const useConvertNumArrayToTextFormPresenter = () => {
   const { enqueueSnackbar } = useSnackbar();

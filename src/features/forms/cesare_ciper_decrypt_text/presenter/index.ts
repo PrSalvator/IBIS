@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { cesareCipherDecryptTextSchema } from "../schema";
 import { useState } from "react";
 import { useSnackbar } from "notistack";
-import { DecryptText } from "../../../../shared/algorithms/text_crypt";
+import { DecryptText } from "../../../../shared/algorithms/cesare_cipher/text_crypt";
 
 export const useCesareCipherDecryptTextFormPresenter = () => {
   const { enqueueSnackbar } = useSnackbar();

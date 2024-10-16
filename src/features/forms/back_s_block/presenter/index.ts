@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { backSBlockSchema } from "../schema";
 import { useState } from "react";
 import { useSnackbar } from "notistack";
-import { BackSBlock } from "../../../../shared/algorithms/S_blocks/encryption_wrapper";
+import { BackSBlock } from "../../../../shared/algorithms/cesare_cipher/S_blocks/encryption_wrapper";
 
 export const useBackSBlockFormPresenter = () => {
   const { enqueueSnackbar } = useSnackbar();

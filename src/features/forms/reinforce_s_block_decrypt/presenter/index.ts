@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { reinforceSBlockDecryptSchema } from "../schema";
 import { useState } from "react";
 import { useSnackbar } from "notistack";
-import { ReinforceSBlockDecrypt } from "../../../../shared/algorithms/S_blocks/reinforce_s_blocks";
+import { ReinforceSBlockDecrypt } from "../../../../shared/algorithms/cesare_cipher/S_blocks/reinforce_s_blocks";
 
 export const useReinforceSBlockDecryptFormPresenter = () => {
   const { enqueueSnackbar } = useSnackbar();

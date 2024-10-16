@@ -2,7 +2,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { getCodeBySymbolSchema } from "../schema";
 import { useState } from "react";
-import { GetCodeBySymbol } from "../../../../shared/algorithms/converters";
+import { GetCodeBySymbol } from "../../../../shared/algorithms/cesare_cipher/converters";
 import { useSnackbar } from "notistack";
 
 export const useGetCodeBySymbolFormPresenter = () => {

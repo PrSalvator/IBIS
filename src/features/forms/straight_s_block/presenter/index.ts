@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { straightSBlockSchema } from "../schema";
 import { useState } from "react";
 import { useSnackbar } from "notistack";
-import { StraightSBlock } from "../../../../shared/algorithms/S_blocks/encryption_wrapper";
+import { StraightSBlock } from "../../../../shared/algorithms/cesare_cipher/S_blocks/encryption_wrapper";
 
 export const useStraightSBlockFormPresenter = () => {
   const { enqueueSnackbar } = useSnackbar();

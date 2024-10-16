@@ -1,7 +1,7 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { SubtractSymbols } from "../../../../shared/algorithms/converters";
+import { SubtractSymbols } from "../../../../shared/algorithms/cesare_cipher/converters";
 import { useSnackbar } from "notistack";
 import { substructSymbolsSchema } from "../schema";
 

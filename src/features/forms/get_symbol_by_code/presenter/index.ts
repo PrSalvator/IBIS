@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useSnackbar } from "notistack";
 import { getSymbolByCodeSchema } from "../schema";
-import { GetSymbolByCode } from "../../../../shared/algorithms/converters";
+import { GetSymbolByCode } from "../../../../shared/algorithms/cesare_cipher/converters";
 
 export const useGetSymbolByCodeFormPresenter = () => {
   const { enqueueSnackbar } = useSnackbar();
