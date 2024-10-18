@@ -1,3 +1,4 @@
+import { CesareCipherLab2 } from "./cesare_cipher_lab2";
 import { Converter } from "./converter";
 //import { Validator } from "./validator";
 
@@ -8,7 +9,7 @@ export class ConverterLab2 extends Converter {
     //     super(validator);
     // }
 
-    blockToNum(block: string): number {
+    BlockToNum(block: string): number {
         // if (!this.validator.isCyrillicText(block)) {
         //     throw new Error('Функция принимает на вход текст, содержащий только русские заглавные буквы, не включая "Ъ" и "Ё".');
         // }
@@ -28,7 +29,7 @@ export class ConverterLab2 extends Converter {
         return out;
     }
 
-    numToBlock(num: number): string {
+    NumToBlock(num: number): string {
 
         if (num < 0 || num > 1048575) {
             throw new Error("Число должно входить в диапазон от 0 до 1048575.");
@@ -44,7 +45,7 @@ export class ConverterLab2 extends Converter {
         return super.ConvertNumArrayToText(arr);
     }
 
-    numToBin(num: number): number[] {
+    NumToBin(num: number): number[] {
         if (num < 0 || num > 1048575) {
             throw new Error("Число должно входить в диапазон от 0 до 1048575.");
         }
@@ -58,7 +59,7 @@ export class ConverterLab2 extends Converter {
         return out;
     }
 
-    numToDec(binNum: number[]): number {
+    NumToDec(binNum: number[]): number {
         if (binNum.length != 20) {
             throw new Error("Массив должен содержать 20 элементов.");
         }
@@ -73,5 +74,61 @@ export class ConverterLab2 extends Converter {
             out = 2 * out + binNum[i];
         }
         return out;
+    }
+
+    BinToDec(nums: number[]): number {
+        return parseInt(nums.join(""), 2)
+    }
+
+    DecToBin(num_in: number): number[] {
+        const zeros = Array(20).fill(0);
+        const bin = num_in.toString(2).split("").map(x => Number(x));
+
+        return zeros.concat(bin).splice(-20);
+    }
+
+    MakeSeed(block: string): string[] { //?
+        const cesare = new CesareCipherLab2()
+
+        const str1 = 'ПЕРВЫЙ_ГЕНЕРАТОР';
+        const str2 = 'ВТОРОЙ_ГЕНЕРАТОР';
+        const str3 = 'ТРЕТИЙ_ГЕНЕРАТОР';
+
+        const out = []
+        out[1] = cesare.oneSideFunction(block, str1, 10);
+        out[2] = cesare.oneSideFunction(block, str2, 10);
+        out[3] = cesare.oneSideFunction(block, str3, 10);
+
+        return out;
+    }
+
+    SeedToNums(array_in: string[]): number[] {
+        const out = [];
+        let i = 0;
+        while (i < 2) {
+            out[i] = this.BlockToNum(array_in[i]);
+            i++;
+        }
+        return out;
+    }
+
+    CheckSeed(block_in: string): string {
+        const cesare = new CesareCipherLab2();
+        const C = 'ОТВЕТСТВЕННЫЙ_ПОДХОД';
+
+        const T = [];
+        for (let i = 0; i < 3; i++) { // где-то тут мб в циклах неправильная длина стоит
+            T[i] = block_in.substr(i * 4, 4);
+        }
+
+        for (let j = 0; j < 3; j++) { // где-то тут мб в циклах неправильная длина стоит
+            for (let i = j + 1; i < 4; i++) { // где-то тут мб в циклах неправильная длина стоит
+                if (T[i] === T[j]) {
+                    T[i] = cesare.oneSideFunction(T[j], C, j + 2 * i);
+                }
+            }
+        }
+
+        return T.join("");
     }
 }

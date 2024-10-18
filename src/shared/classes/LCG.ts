@@ -1,9 +1,9 @@
 export class LCG {
 
-    stateIn: number; // 
-    a: number; // 
-    c: number; // 
-    m: number; // 
+    stateIn: number;
+    a: number;
+    c: number;
+    m: number;
 
     constructor(stateIn: number, a: number, c: number, m: number,) {
         this.stateIn = stateIn;
@@ -12,7 +12,9 @@ export class LCG {
         this.m = m;
     }
 
-    Next(stateIn: number, a: number, c: number, m: number): number {
-        return ((a * stateIn + c) % m);
+    Next(): number {
+        return ((this.a * this.stateIn + this.c) % this.m);
     }
+
+    
 }

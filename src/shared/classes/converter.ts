@@ -3,8 +3,8 @@ import { Validator } from "./validator";
 export class Converter {
     validator: Validator
 
-    constructor(valid: Validator) {
-        this.validator = valid;
+    constructor() {
+        this.validator = new Validator();
     }
 
     GetCodeBySymbol(symbol: string): number {
