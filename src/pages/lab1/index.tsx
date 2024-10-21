@@ -1,19 +1,19 @@
-import { BackSBlockForm } from "../../features/forms/back_s_block";
-import { CesareCipherDecryptForm } from "../../features/forms/cesare_ciper_decrypt";
-import { CesareCipherDecryptTextForm } from "../../features/forms/cesare_ciper_decrypt_text";
-import { CesareCipherForm } from "../../features/forms/cesare_cipher";
-import { CesareCipherTextForm } from "../../features/forms/cesare_cipher_text";
-import { ConvertNumArrayToTextForm } from "../../features/forms/convert_num_array_to_text";
-import { ConvertTextToNumArrayForm } from "../../features/forms/convert_text_to_num_array";
-import { GetCodeBySymbolForm } from "../../features/forms/get_code_by_symbol";
-import { GetSymbolByCodeForm } from "../../features/forms/get_symbol_by_code";
-import { ModifiedCesareCipherDecryptForm } from "../../features/forms/modified_cesare_ciper_decrypt";
-import { ModifiedCesareCiphertForm } from "../../features/forms/modified_cesare_cipher";
-import { ReinforceSBlockForm } from "../../features/forms/reinforce_s_block";
-import { ReinforceSBlockDecryptForm } from "../../features/forms/reinforce_s_block_decrypt";
-import { StraightSBlockForm } from "../../features/forms/straight_s_block";
-import { SubstructSymbolsForm } from "../../features/forms/substruct_symbols";
-import { SumSymbolsForm } from "../../features/forms/sum_symbols";
+import { BackSBlockForm } from "../../features/forms/lab1/back_s_block";
+import { CesareCipherDecryptForm } from "../../features/forms/lab1/cesare_ciper_decrypt";
+import { CesareCipherDecryptTextForm } from "../../features/forms/lab1/cesare_ciper_decrypt_text";
+import { CesareCipherForm } from "../../features/forms/lab1/cesare_cipher";
+import { CesareCipherTextForm } from "../../features/forms/lab1/cesare_cipher_text";
+import { ConvertNumArrayToTextForm } from "../../features/forms/lab1/convert_num_array_to_text";
+import { ConvertTextToNumArrayForm } from "../../features/forms/lab1/convert_text_to_num_array";
+import { GetCodeBySymbolForm } from "../../features/forms/lab1/get_code_by_symbol";
+import { GetSymbolByCodeForm } from "../../features/forms/lab1/get_symbol_by_code";
+import { ModifiedCesareCipherDecryptForm } from "../../features/forms/lab1/modified_cesare_ciper_decrypt";
+import { ModifiedCesareCiphertForm } from "../../features/forms/lab1/modified_cesare_cipher";
+import { ReinforceSBlockForm } from "../../features/forms/lab1/reinforce_s_block";
+import { ReinforceSBlockDecryptForm } from "../../features/forms/lab1/reinforce_s_block_decrypt";
+import { StraightSBlockForm } from "../../features/forms/lab1/straight_s_block";
+import { SubstructSymbolsForm } from "../../features/forms/lab1/substruct_symbols";
+import { SumSymbolsForm } from "../../features/forms/lab1/sum_symbols";
 
 export const Lab1Page = () => {
   return (
