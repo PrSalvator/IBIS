@@ -2,8 +2,8 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { sumSymbolsSchema } from "../schema";
 import { useState } from "react";
-import { Converter } from "../../../../shared/classes/Converter";
 import { useSnackbar } from "notistack";
+import { Converter } from "../../../../../shared/classes/converter";
 
 const converter = new Converter();
 

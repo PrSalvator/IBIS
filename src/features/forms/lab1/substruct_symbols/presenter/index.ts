@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { useState } from "react";
 import { useSnackbar } from "notistack";
 import { substructSymbolsSchema } from "../schema";
-import { Converter } from "../../../../shared/classes/converter";
+import { Converter } from "../../../../../shared/classes/converter";
 
 const converter = new Converter();
 
