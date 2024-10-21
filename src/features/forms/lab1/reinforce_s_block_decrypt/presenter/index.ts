@@ -3,7 +3,9 @@ import { useForm } from "react-hook-form";
 import { reinforceSBlockDecryptSchema } from "../schema";
 import { useState } from "react";
 import { useSnackbar } from "notistack";
-import { ReinforceSBlockDecrypt } from "../../../../../shared/algorithms/cesare_cipher/S_blocks/reinforce_s_blocks";
+import { CesareCipher } from "../../../../../shared/classes/cesare_cipher";
+
+const cesare_cipher = new CesareCipher();
 
 export const useReinforceSBlockDecryptFormPresenter = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -12,7 +14,11 @@ export const useReinforceSBlockDecryptFormPresenter = () => {
   const handleSubmit = form.handleSubmit((data, e) => {
     e?.preventDefault();
     try {
-      const symbol = ReinforceSBlockDecrypt(data.key, data.text, data.j_in);
+      const symbol = cesare_cipher.ReinforceSBlockDecrypt(
+        data.key,
+        data.text,
+        data.j_in
+      );
       setAnswer(symbol);
     } catch (e) {
       if (e instanceof Error) enqueueSnackbar(e.message);
