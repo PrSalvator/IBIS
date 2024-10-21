@@ -3,8 +3,9 @@ import { useForm } from "react-hook-form";
 import { modifiedCesareCipherDecryptSchema } from "../schema";
 import { useState } from "react";
 import { useSnackbar } from "notistack";
-import { PolyAlphabatCesareDecrypt } from "../../../../../shared/algorithms/cesare_cipher/modified_cipher";
+import { CesareCipher } from "../../../../../shared/classes/cesare_cipher";
 
+const cesare_cipher = new CesareCipher();
 export const useModifidCesareCipherDecryptFormPresenter = () => {
   const { enqueueSnackbar } = useSnackbar();
   const [answer, setAnswer] = useState<string>();
@@ -14,7 +15,11 @@ export const useModifidCesareCipherDecryptFormPresenter = () => {
   const handleSubmit = form.handleSubmit((data, e) => {
     e?.preventDefault();
     try {
-      const symbol = PolyAlphabatCesareDecrypt(data.key, data.text, data.j_in);
+      const symbol = cesare_cipher.PolyAlphabatCesareDecrypt(
+        data.key,
+        data.text,
+        data.j_in
+      );
       setAnswer(symbol);
     } catch (e) {
       if (e instanceof Error) enqueueSnackbar(e.message);
