@@ -1,5 +1,5 @@
 import { ConverterLab2 } from "./converter_lab2";
-import { WrapHCLCG } from "./WrapHCLCG";
+import { WrapHCLCG } from './wrapHCLCG';
 
 export class WrapCHCLCGM extends WrapHCLCG {
 

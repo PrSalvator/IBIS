@@ -1,9 +1,11 @@
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
-import { SubtractSymbols } from "../../../../shared/algorithms/cesare_cipher/converters";
 import { useSnackbar } from "notistack";
 import { substructSymbolsSchema } from "../schema";
+import { Converter } from "../../../../shared/classes/converter";
+
+const converter = new Converter();
 
 export const useSubstractSymbolsFormPresenter = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -12,7 +14,7 @@ export const useSubstractSymbolsFormPresenter = () => {
   const handleSubmit = form.handleSubmit((data, e) => {
     e?.preventDefault();
     try {
-      const symbolC = SubtractSymbols(data.symbolA, data.symbolB);
+      const symbolC = converter.SubtractSymbols(data.symbolA, data.symbolB);
       setAnswer(symbolC);
     } catch (e) {
       if (e instanceof Error) enqueueSnackbar(e.message);
