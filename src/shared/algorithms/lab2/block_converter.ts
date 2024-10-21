@@ -43,7 +43,7 @@
 // 	return ConvertNumArrayToText(arr);
 // }
 
-// export function numToBin(num: number)
+// export function (num: number)
 // {
 	
 // 	// тут нужно выбрасывать ошибку если число не в диапазоне от 0 до 1048575

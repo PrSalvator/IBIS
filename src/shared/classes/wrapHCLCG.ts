@@ -6,15 +6,16 @@ export class WrapHCLCG {
     HCLCGs: HCLCG[];
 
     constructor(seed: string, /*state_in: number[],*/ set_in: number[][]) {
+        // eslint-disable-next-line no-debugger
+
         this.HCLCGs = [];
         //super(state_in, set_in);
         this.seed = seed;
 
         const converter = new ConverterLab2();
-
         let i = 0;
         while (i < 4) {
-            this.HCLCGs.push(new HCLCG(converter.SeedToNums(converter.MakeSeed(this.seed.substr(i * 4, 4))), set_in))
+            this.HCLCGs[i] = new HCLCG(converter.SeedToNums(converter.MakeSeed(this.seed.substr(i * 4, 4))), set_in);;
             //this.inner_state.push(converter.MakeSeed(this.seed.substr(i * 4, 4)));
             i++;
         }
@@ -31,13 +32,14 @@ export class WrapHCLCG {
 
             let j = 0;
             while (j < 4) {
-                temp = (sign * this.HCLCGs[i].Next() + 1048576 + temp) % 1048576;
+                temp = (sign * this.HCLCGs[j].Next() + 1048576 + temp) % 1048576;
                 sign = -sign;
                 j++;
             }
             stream += converter.NumToBlock(temp);
             i++;
         }
+
 
         return stream;
     }
